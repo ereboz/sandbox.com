@@ -1,3 +1,110 @@
+@import "bootstrap";    // import minimum bootstrap: framework, mixins and other itmes.
+
+// Bootstrap Grid Variables
+// @screen-xxxs: 320px;
+// @screen-xxs: 375px;
+// @screen-tablet-md-min: 780px;
+// @screen-tablet-md-max: 800px;
+
+// use when creating columns in LESS
+//.make-xs-column = @screen-xs     =  480px;
+//.make-sm-column = @screen-sm-min = 768px;
+//.make-md-column = @screen-md-min = 992px;
+//.make-lg-column = @screen-lg-min = 1200px;
+
+// Brian Custom Grid Variables
+// min-widths
+@phone-xxxs-min: ~"(min-width: 320px)";
+@phone-xxs-min: ~"(min-width: 375px)";
+@phone-min: ~"(min-width: 480px)";
+@tablet-min: ~"(min-width: 768px)";
+@desktop-min: ~"(min-width: 992px)";
+@desktop-large-min: ~"(min-width: 1200px)";
+
+// max-widths
+@phone-xxxs-max: ~"(max-width: 320px)";
+@phone-xxs-max: ~"(max-width: 375px)";
+@phone-max: ~"(max-width: 480px)";
+@tablet-max: ~"(max-width: 768px)";
+@desktop-max: ~"(max-width: 992px)";
+@desktop-large-max: ~"(max-width: 1200px)";
+
+
+
+//<editor-fold desc="Needless vars and code">
+
+
+
+// color variables
+@black: #000;
+@blue: #242857;
+@gray: #626262;
+@red: #801c28;
+@white: #fff;
+
+
+
+// font variables
+@font-roboto: "Roboto",sans-serif;
+@font-grid:'Roboto', sans-serif;
+@font-open-sans: 'Open Sans', sans-serif;
+
+
+
+
+/* MIXIN'S
+========================================================================== */
+
+.btn-transparent() {                // Popular Models
+    display: inline-block;
+    border: 1px dotted lighten(@gray,30%);
+    padding: 9px 15px 7px 15px;;
+    height: 36px;
+    background: white;
+    font-family: @font-open-sans;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+        background-color: @red;
+        color: @white;
+    }
+}
+
+.btn-view-details() {               // Best Sellers
+    display: block;
+    float: left;
+    .size(200px, 50px);
+    padding: 14px 5px 5px 10px;
+    overflow: hidden;
+    //font-family: "Roboto",sans-serif;
+    font-size: 12px;
+    color: @black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    background-color: lighten(@gray-background, 1%);
+    text-align: center;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    
+    &:hover {
+        background-color: @blue-primary;
+        color: @white;
+    }
+}
+
+
+
 /* Laminated padlock grid section
 ========================================================================== */
 

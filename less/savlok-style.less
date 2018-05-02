@@ -1,0 +1,407 @@
+//* Created by javaBoxer on 8/7/2017.
+@import "bootstrap";    // import minimum bootstrap: framework, mixins and other itmes.
+
+
+/* Developer Notes
+========================================================================== */
+
+//<editor-fold desc="Developer Notes">
+/* ==========================================================================
+Bootstrap LESS variables to reference
+
+@screen-xxxs          320px
+@screen-xxs           375px
+@screen-xs             480px;
+@screen-tablet         768px
+@screen-desktop        992px
+@screen-lg-desktop     1200px
+Custom iphone widths if needed:
+
+.make-xs-column = @screen-xs     =  480px;
+.make-sm-column = @screen-sm-min = 768px;
+.make-md-column = @screen-md-min = 992px;
+.make-lg-column = @screen-lg-min = 1200px;
+
+Custom variables to make using column mixin's possible and keep the DOM
+unpolluted with (col-md-4 col-lg-6, etc.)
+
+@phone-min: ~"(min-width: 480px)";
+@tablet-min: ~"(min-width: 768px)";
+@desktop-min: ~"(min-width: 992px)";
+@desktop-large-min: ~"(min-width: 1200px)";
+
+@phone-max: ~"(max-width: 480px)";
+@tablet-max: ~"(max-width: 768px)";
+@desktop-max: ~"(max-width: 992px)";
+@desktop-large-max: ~"(max-width: 1200px)";
+========================================================================== */
+
+//</editor-fold>
+
+
+/* Variable's
+========================================================================== */
+
+//<editor-fold desc="Variables">
+
+@font-roboto: "Roboto", sans-serif;
+@font-opensans: "Open Sans",sans-serif;
+
+@black: #000;
+@white: #fff;
+@orange: #fa0;
+@blue: #48c;
+
+@phone-min: ~"(min-width: 480px)";
+@tablet-min: ~"(min-width: 768px)";
+@desktop-min: ~"(min-width: 992px)";
+@desktop-large-min: ~"(min-width: 1200px)";
+
+@phone-max: ~"(max-width: 480px)";
+@tablet-max: ~"(max-width: 768px)";
+@desktop-max: ~"(max-width: 992px)";
+@desktop-large-max: ~"(max-width: 1200px)";
+
+//</editor-fold>
+
+
+/* Mixin'S
+========================================================================== */
+
+//<editor-fold desc="Mixin's">
+.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+     border-radius: @radius;
+}
+//</editor-fold>
+
+
+/* Global'S
+========================================================================== */
+
+//<editor-fold desc="Global's">
+
+body {
+    color: inherit;
+}
+
+.page-wrapper.savlok-brochure {
+    margin-top: 0;
+    
+    @media @tablet-max {
+        margin-top: 30px;
+    }
+}
+
+//</editor-fold>
+
+
+/* ==========================================================================
+****** Brochure Columns [3] ******
+========================================================================== */
+
+//<editor-fold desc="Brochure Columns">
+
+.page-wrapper[class*="brochure"] {
+    
+    font-family: @font-roboto;
+    
+    // look for .page-wrapper and a class with "brochure" in the page wrapper
+    // then a "box" to style.
+    
+    .box {
+        width: 100%;
+        float: left;
+        border: 1px dotted @black;
+        padding: 10px;
+        margin-bottom: 20px;
+        color: lighten(@black, 20%);
+        background-color: lighten(@black, 95%);
+        overflow: hidden;
+        .rounded-corners();
+        
+        @media @desktop-min {
+            min-height: 275px;
+        }
+    }
+    
+    a {
+        &:link {
+            color: @blue;
+            text-decoration: none;
+        }
+        &:hover {
+            color: lighten(@orange, 5%);
+        }
+        &:visited {
+            color: darken(@orange, 5%);
+        }
+        &:active {
+            color: blue;
+        }
+    }
+    
+    .topic-heading {
+        min-height: 75px;
+        width: 100%;
+        color: @white;
+        background-color: black;
+        text-align: center;
+        .rounded-corners();
+        
+        .title-wrap {
+            padding-top: 10px;
+            font-size: 24px;
+            
+            .reg {
+                margin-left: -5px;
+                font-size: 12px;
+                vertical-align: super;
+            }
+        }
+    }
+    
+    .topic-sub-heading {
+        margin-top: 10px;
+        max-height: 25px;
+        width: 100%;
+        color: @white;
+        background-color: lighten(@black, 35%);
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .page-separator {
+        margin-bottom: 40px;
+    }
+    
+}
+
+// look for value ending in wrapper inside savlok-brochure
+// each main section, image wrappers and key-value pair wrappers will get this margin
+.savlok-brochure {
+    div[class$="wrapper"] {
+        margin-bottom: 15px;
+    }
+}
+
+.page-title {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+// ************ First Wrapper Column ************
+.first-wrapper {
+    
+    .make-sm-column(3);     // 768px (min)
+}
+
+// ************ Second Wrapper Column ************
+.second-wrapper {
+    
+    .make-sm-column(3);     // 768px (min)
+}
+
+// ************ Third Wrapper Column ************
+.third-wrapper {
+    .make-sm-column(3);     // 768px (min)
+}
+
+// ************ Fourth Wrapper Column ************
+.fourth-wrapper {
+    .make-sm-column(3);     // 768px (min)
+}
+
+// ************ Globals for 3 columns ************
+.first-wrapper, .second-wrapper, .third-wrapper, .fourth-wrapper {
+    
+    @media @desktop-min {
+        min-height: 400px;
+    }
+    
+    .img-wrapper {
+        img {
+            margin: 25px auto;
+        }
+    }
+    
+    .first-elements, .second-elements, .third-elements, .fourth-elements {
+        width: 100%;
+        margin: 0 auto;
+        float: left;
+        padding: 10px;
+        
+        .element-desc {
+            margin: 10px 0 20px 0;
+        }
+        
+        .element-details-head {
+            background-color: lighten(@black, 70%);
+            color: @white;
+            padding: 5px;
+            
+            
+            .key {
+                padding-left: 5px;
+            }
+            
+            .value {
+               padding-right: 5px;
+            }
+        }
+        
+        .kv-wrapper {
+            float: left;
+            width: 100%;
+            border-bottom: 1px dotted lighten(@black, 75%);
+    
+            .key, .value {
+                font-size: 14px;
+            }
+    
+            .key {
+                float: left;
+                width: 45%;
+                text-align: left;
+                padding-left: 5px;
+        
+                span {
+            
+                }
+            }
+    
+            .value {
+                float: left;
+                width: 55%;
+                text-align: right;
+                padding-right: 5px;
+        
+                img {
+                    float: right;
+                }
+            }
+            
+            a {
+                display: block;
+            }
+        }
+        
+        .key-value-desc {
+            
+            .key, .value, .desc {
+                font-size: 14px;
+            }
+            
+            .key {
+                float: left;
+                width: 30%;
+                padding-left: 5px;
+                text-align: left;
+            }
+            
+            .value {
+                float: left;
+                width: 30%;
+                text-align: center;
+            }
+            
+            .desc {
+                float: left;
+                width: 40%;
+                padding-right: 5px;
+                text-align: right;
+            }
+            
+        }
+        
+    }
+}
+
+.emphasis {
+    font-weight: bold;
+}
+
+// these single images are way larger and need to be scaled look similar to the others.
+.spacers, .o-ring, .nylon-nut{
+    img {
+        max-width: 40%;
+    }
+}
+
+.zinc, .lok-plate-kit  {
+    img {
+        max-width: 70%;
+    }
+}
+
+.bolt-kit-carded {
+    .img-wrapper-two {
+        float: left;
+        position: relative;
+        margin: 20px 0;
+        width: 100%;
+        
+        .dis-assembled, .assembled {
+            float: left;
+            width: 50%;
+        }
+        
+        .dis-assembled {
+            img {
+                margin-top: 30%;
+            }
+        }
+        
+        .assembled {
+            img {
+                padding-left: 12%;
+            }
+        }
+    }
+}
+
+
+
+
+.second-wrapper {
+
+}
+
+.rivets {
+    .img-wrapper-two {
+        float: left;
+        position: relative;
+        width: 100%;
+        font-size: 16px;
+        
+        .pop {
+            float: left;
+            width: 50%;
+            
+            .desc {
+                position: absolute;
+                top: 10%;
+                left: 25%;
+                z-index: 1;
+            }
+        }
+        
+        .peen {
+            float: left;
+            width: 50%;
+            
+            .desc {
+                position: absolute;
+                top: 10%;
+                left: 90%;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+/* End Brochure Columns
+========================================================================== */
+//</editor-fold>
