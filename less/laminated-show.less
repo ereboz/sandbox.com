@@ -1,3 +1,4 @@
+.laminated-show {
 @import "bootstrap";    // import minimum bootstrap: framework, mixins and other itmes.
 
 // Bootstrap Grid Variables
@@ -54,6 +55,7 @@
 
 /* MIXIN'S
 ========================================================================== */
+
 
 .btn-transparent() {                // Popular Models
     display: inline-block;
@@ -131,7 +133,7 @@
 
 
 .prod-plp {
-    .make-md-column(12);
+    // .make-md-column(12);
     
     @media @tablet-min {
         margin-left: -15px;
@@ -152,8 +154,8 @@
 
 .item-wrapper {
     
-    .make-xs-column(12);
-    .make-sm-column(3);
+    // .make-xs-column(12);
+    // .make-sm-column(3);
     
     .item {
         border: 1px dotted lighten(@gray, 30%);
@@ -298,3 +300,4 @@
     // max-height: 1000px;
 }
 
+}

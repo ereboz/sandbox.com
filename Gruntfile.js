@@ -164,16 +164,16 @@ module.exports = function (grunt) {
         src: 'less/bootstrap.less',
         dest: 'dist/css/<%= pkg.name %>.css'
       },
-        compileLaminatedGrid: {
+        compileLaminatedShow: {
             options: {
                 strictMath: true,
                 sourceMap: true,
                 outputSourceFiles: true,
-                sourceMapURL: 'laminated-grid.css.map',
-                sourceMapFilename: 'dist/css/laminated-grid.css.map'
+                sourceMapURL: 'laminated-show.css.map',
+                sourceMapFilename: 'dist/css/laminated-show.css.map'
             },
-            src: 'less/laminated-grid.less',
-            dest: 'dist/css/laminated-grid.css'
+            src: 'less/laminated-show.less',
+            dest: 'dist/css/laminated-show.css'
         },
       compileTheme: {
         options: {
@@ -249,9 +249,9 @@ module.exports = function (grunt) {
         src: 'dist/css/<%= pkg.name %>.css',
         dest: 'dist/css/<%= pkg.name %>.min.css'
       },
-      minifyLaminatedGrid: {
-        src: 'dist/css/laminated-grid.css',
-        dest: 'dist/css/laminated-grid.min.css'
+      minifyLaminatedShow: {
+        src: 'dist/css/laminated-show.css',
+        dest: 'dist/css/laminated-show.min.css'
       },
       minifyTheme: {
         src: 'dist/css/<%= pkg.name %>-theme.css',
@@ -489,8 +489,8 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
 
   // CSS distribution task.
-  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileLaminatedGrid', 'less:compileTheme']);
-  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyLaminatedGrid', 'cssmin:minifyTheme']);
+  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileLaminatedShow', 'less:compileTheme']);
+  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyLaminatedShow', 'cssmin:minifyTheme']);
 
   // Full distribution task.
   grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js']);
