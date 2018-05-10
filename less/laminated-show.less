@@ -160,6 +160,7 @@
     .item {
         border: 1px dotted lighten(@gray, 30%);
         margin-bottom: 50px;
+        margin-right: 5px;
         background-color: @white;
         color: lighten(@gray,10%);
         
@@ -197,15 +198,16 @@
         margin-bottom: 5px;
         
         img {
+            position: relative !important;
             display: inline-block;
             max-width: 23%;
         
             @media @tablet-min {
-                max-width: 35px;
+                max-width: 40px;
             }
         
             @media @desktop-min {
-                max-width: 60px;
+                max-width: 45px;
             }
         }
     }

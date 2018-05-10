@@ -805,6 +805,7 @@
   text-align: center;
 }
 .laminated-show .item-wrapper .item {
+  margin-right: 5px;
   margin-bottom: 50px;
   color: #7c7c7c;
   background-color: #fff;
@@ -836,17 +837,18 @@
   margin-bottom: 5px;
 }
 .laminated-show .item-image-wrapper .item-images img {
+  position: relative !important;
   display: inline-block;
   max-width: 23%;
 }
 @media (min-width: 768px) {
   .laminated-show .item-image-wrapper .item-images img {
-    max-width: 35px;
+    max-width: 40px;
   }
 }
 @media (min-width: 992px) {
   .laminated-show .item-image-wrapper .item-images img {
-    max-width: 60px;
+    max-width: 45px;
   }
 }
 .laminated-show .item-desc-wrapper {
