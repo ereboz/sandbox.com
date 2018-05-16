@@ -169,11 +169,11 @@ module.exports = function (grunt) {
                 strictMath: true,
                 sourceMap: true,
                 outputSourceFiles: true,
-                sourceMapURL: 'laminated-show.css.map',
-                sourceMapFilename: 'dist/css/laminated-show.css.map'
+                sourceMapURL: 'laminated-grid.css.map',
+                sourceMapFilename: 'dist/css/laminated-grid.css.map'
             },
-            src: 'less/laminated-show.less',
-            dest: 'dist/css/laminated-show.css'
+            src: 'less/laminated-grid.less',
+            dest: 'dist/css/laminated-grid.css'
         },
       compileTheme: {
         options: {
@@ -250,8 +250,8 @@ module.exports = function (grunt) {
         dest: 'dist/css/<%= pkg.name %>.min.css'
       },
       minifyLaminatedShow: {
-        src: 'dist/css/laminated-show.css',
-        dest: 'dist/css/laminated-show.min.css'
+        src: 'dist/css/laminated-grid.css',
+        dest: 'dist/css/laminated-grid.min.css'
       },
       minifyTheme: {
         src: 'dist/css/<%= pkg.name %>-theme.css',
