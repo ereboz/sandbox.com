@@ -855,16 +855,16 @@
   text-align: center;
 }
 .laminated-show .item-desc-wrapper .item-models {
-  word-spacing: 16px;
+  word-spacing: 11px;
 }
 @media (min-width: 768px) {
   .laminated-show .item-desc-wrapper .item-models {
-    word-spacing: 7px;
+    word-spacing: 9px;
   }
 }
 @media (min-width: 992px) {
   .laminated-show .item-desc-wrapper .item-models {
-    word-spacing: 15px;
+    word-spacing: 7px;
   }
 }
 .laminated-show .item-desc-wrapper .item-desc .price-hpi {
