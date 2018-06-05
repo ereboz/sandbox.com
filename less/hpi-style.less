@@ -1,3 +1,239 @@
+//* Created by javaBoxer on 7/26/2017.
+
+
+/* Developer Notes
+========================================================================== */
+
+//<editor-fold desc="Developer Notes">
+/* ==========================================================================
+Bootstrap LESS variables to reference
+
+@screen-xxxs          320px
+@screen-xxs           375px
+@screen-xs             480px;
+@screen-tablet         768px
+@screen-desktop        992px
+@screen-lg-desktop     1200px
+Custom iphone widths if needed:
+
+.make-xs-column = @screen-xs     =  480px;
+.make-sm-column = @screen-sm-min = 768px;
+.make-md-column = @screen-md-min = 992px;
+.make-lg-column = @screen-lg-min = 1200px;
+
+Custom variables to make using column mixin's possible and keep the DOM
+unpolluted with (col-md-4 col-lg-6, etc.)
+
+@phone-min: ~"(min-width: 480px)";
+@tablet-min: ~"(min-width: 768px)";
+@desktop-min: ~"(min-width: 992px)";
+@desktop-large-min: ~"(min-width: 1200px)";
+
+@phone-max: ~"(max-width: 480px)";
+@tablet-max: ~"(max-width: 768px)";
+@desktop-max: ~"(max-width: 992px)";
+@desktop-large-max: ~"(max-width: 1200px)";
+========================================================================== */
+
+//</editor-fold>
+
+
+/* Sub-section: LESS variables for this page: index.html
+========================================================================== */
+
+
+/* DEFINE OUR GLOBAL VARIABLES
+========================================================================== */
+
+// Font Variables
+@font-assistant: 'Assistant', sans-serif;
+@font-didact: 'Didact Gothic', sans-serif;
+@font-open-sans: 'Open Sans', sans-serif;
+@font-roboto: "Roboto",sans-serif;
+@font-worksans: 'Work Sans', sans-serif;
+
+
+@font-body: @font-roboto;
+@font-grid: @font-roboto;
+
+// Color Variables
+@black: #000;
+@blue: #29ABE2;
+@blue1: #337ab7;
+@blue2: #286090;
+@blue-primary: #497890;
+@blue-secondary: #b7b7b7;
+@dark-gray: #333;
+@gold: #ccd631;
+@gray: #626262;
+@gray-background: #f5f7f9;
+@gray-dark: #7b7b7b;
+@gray-light: #d3d3d3;
+@gray-med1: #ddd;
+@gray-med3: #929292;
+@gray-med4: #e6e8ea;
+@gray-medium: #7b7a7a;
+@gray-superlight: #e8e1e1;
+@green: #7fbb5b;
+@light-gray1: #e0e0e0;
+@light-gray2: #f8f8f8;
+@light-gray3: #f3f5f6;
+@light-gray5: #e0dcdc;
+@light-gray6: #dedada;
+@med-gray: #616161;
+@powder-blue: rgba(41, 171, 226, 0.06); // not used
+@red: #ff0000;
+@slate-gray: #444f45;
+@white: #fff;
+@white-off: #fbfbfb;
+
+// Bootstrap Grid Variables
+@screen-xxxs: 320px;
+@screen-xxs: 375px;
+@screen-tablet-md-min: 780px;
+@screen-tablet-md-max: 800px;
+
+// Brian Custom Grid Variables
+// min-widths
+@phone-xxxs-min: ~"(min-width: 320px)";
+@phone-xxs-min: ~"(min-width: 375px)";
+@phone-min: ~"(min-width: 480px)";
+@tablet-min: ~"(min-width: 768px)";
+@desktop-min: ~"(min-width: 992px)";
+@desktop-large-min: ~"(min-width: 1200px)";
+
+// max-widths
+@phone-xxxs-max: ~"(max-width: 320px)";
+@phone-xxs-max: ~"(max-width: 375px)";
+@phone-max: ~"(max-width: 480px)";
+@tablet-max: ~"(max-width: 768px)";
+@desktop-max: ~"(max-width: 992px)";
+@desktop-large-max: ~"(max-width: 1200px)";
+
+
+/* MIXIN'S
+========================================================================== */
+
+.btn-transparent() {                // Popular Models
+    display: inline-block;
+    border: 1px solid @light-gray5;
+    padding: 7px 15px 7px 10px;
+    height: 36px;
+    background: white;
+    //font-family: @font-roboto;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+        background: #eee;
+        color: #222;
+    }
+}
+
+.btn-view-details() {               // Best Sellers
+    display: block;
+    float: left;
+    .size(200px, 50px);
+    padding: 14px 5px 5px 10px;
+    overflow: hidden;
+    //font-family: "Roboto",sans-serif;
+    font-size: 12px;
+    color: @black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    background-color: lighten(@gray-background, 1%);
+    text-align: center;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    
+    &:hover {
+        background-color: @blue-primary;
+        color: @white;
+    }
+}
+
+.opacity (@opacity: 0.5) {
+    -webkit-opacity:    @opacity;
+    -moz-opacity:       @opacity;
+    opacity:            @opacity;
+}
+
+.gradient1 (@startColor: #eee, @endColor: #fff) {
+    background-color: @startColor;
+    background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    background: -webkit-linear-gradient(top, @startColor, @endColor);
+    background: -moz-linear-gradient(top, @startColor, @endColor);
+    background: -ms-linear-gradient(top, @startColor, @endColor);
+    background: -o-linear-gradient(top, @startColor, @endColor);
+}
+
+.gradient2 (@origin: left, @start: #ffffff, @stop: #000000) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
+
+.box-shadow (@arguments) {
+    -moz-box-shadow: @arguments;
+    -ms-box-shadow: @arguments;
+    -o-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+
+.size(@width, @height) {
+    width: @width;
+    height: @height;
+}
+
+.text-shadow(@offset-x:1px, @offset-y:1px, @blur-radius:1px, @color:#b5b5b5) {
+    text-shadow:@offset-x @offset-y @blur-radius @color;
+}
+
+.border-radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+    
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+.clear-text() {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    text-rendering: optimizelegibility !important;
+}
+
+
+/* PAGE OVERRIDES
+========================================================================== */
+
+body {
+    font-family: @font-body;
+    .clear-text();
+}
+
+
+
+
+
+
 /* ==========================================================================
 FOOTER SECTION
 ========================================================================== */
